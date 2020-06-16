@@ -1,4 +1,4 @@
-# npm
+# npm-step-run-command
 
 This step container runs an [NPM command](https://docs.npmjs.com/cli-documentation/). An NPM step with no configuration will run `npm test` using the default settings as set by NPM. You can define any flags on a command; those listed in the step specifications are only suggestions.
 
@@ -28,6 +28,7 @@ This step container runs an [NPM command](https://docs.npmjs.com/cli-documentati
 steps:
 # build
 - name: npm
+  image: relaysh/npm-step-run-command
   spec:
     command: build
     git:
@@ -35,6 +36,7 @@ steps:
       repository: https://github.com/puppetlabs/design-system.git
 # test
 - name: npm
+  image: relaysh/npm-step-run-command
   spec:
     command: test
     git:
@@ -42,6 +44,7 @@ steps:
       repository: https://github.com/puppetlabs/design-system.git
 # publish
 - name: npm
+  image: relaysh/npm-step-run-command
   spec:
     command: publish
     flags:
@@ -58,6 +61,7 @@ steps:
         name: npm_token
 # ls
 - name: npm
+  image: relaysh/npm-step-run-command
   spec:
     command: ls
     git:

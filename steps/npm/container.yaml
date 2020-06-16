@@ -1,8 +1,0 @@
-apiVersion: container/v1
-kind: StepContainer
-inherit: {from: sdk, name: bash.v1}
-title: Run an NPM command
-description: >
-  This step container runs an npm command. An NPM step with no configuration will run `npm test` using the default settings as set by NPM. You can define any flags on a command; those listed in the step specifications are only suggestions.
-settings:
-  Image: node:lts-alpine
