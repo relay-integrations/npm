@@ -1,0 +1,78 @@
+
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "command": {
+      "type": "string",
+      "description": "A command to run.",
+      "default": "test"
+    },
+    "packageFolder": {
+      "type": "string",
+      "description": "Location of the folder containing a package.json file in its root. May be ignored depending on command.",
+      "default": "./"
+    },
+    "flags": {
+      "type": "object",
+      "description": "Optional flags to set before running command.",
+      "properties": {
+        "tag": {
+          "type": "string",
+          "description": "Registers the published package with the given tag, such that npm install @ will install this version.",
+          "default": "latest"
+        },
+        "access": {
+          "type": "string",
+          "description": "Tells the registry whether this package should be published as public or restricted. Only applies to scoped packages. If you don’t have a paid account, you must publish with public to publish scoped packages.",
+          "default": "restricted"
+        },
+        "otp": {
+          "type": "string",
+          "description": "If you have two-factor authentication enabled in auth-and-writes mode then you can provide a code from your authenticator with this. If you don’t include this and you’re running from a TTY then you’ll be prompted."
+        },
+        "dryRun": {
+          "type": "boolean",
+          "description": "As of npm@6, does everything publish would do except actually publishing to the registry. Reports the details of what would have been published.",
+          "default": false
+        }
+      }
+    },
+    "git": {
+      "type": "object",
+      "description": "A map of git configuration. If you're using HTTPS, only name and repository are required.",
+      "properties": {
+        "ssh_key": {
+          "type": "string",
+          "description": "The SSH key to use when cloning the git repository. You can pass the key to Relay as a secret. See the example below."
+        },
+        "known_hosts": {
+          "type": "string",
+          "description": "SSH known hosts file. Use a Relay secret to pass the contents of the file into the workflow as a base64-encoded string. See the example below."
+        },
+        "name": {
+          "type": "string",
+          "description": "A directory name for the git clone."
+        },
+        "branch": {
+          "type": "string",
+          "description": "The Git branch to clone.",
+          "default": "master"
+        },
+        "repository": {
+          "type": "string",
+          "description": "The git repository URL."
+        }
+      },
+      "required": [
+        "ssh_key",
+        "name",
+        "repository"
+      ]
+    }
+  },
+  "required": [
+    "git"
+  ],
+  "additionalProperties": false
+}
