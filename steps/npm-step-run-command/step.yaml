@@ -18,7 +18,7 @@ summary:  Run command
 
 # Single-paragraph explanation of what this action does in more detail.
 # Optional. Markdown.
-description: |
+description: "This NPM step allows you to run a command give the context of a git resource"
 
 
 # URL or path relative to this file to an icon or icons representing this
@@ -38,3 +38,8 @@ build:
 
 publish:
   repository: npm-step-run-command
+
+schemas: 
+  spec:
+    source: file
+    file: spec.schema.json
