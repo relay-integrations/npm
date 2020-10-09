@@ -1,0 +1,34 @@
+
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "npm": {
+      "type": "object",
+      "description": "An object of NPM configuration",
+      "properties": {
+        "token": {
+          "type": "string",
+          "description": "An NPM access token"
+        },
+        "organization": {
+          "type": "string",
+          "description": "The name of the organization you would like to add a user to."
+        }
+      },
+      "required": [
+        "token",
+        "organization"
+      ]
+    },
+    "user": {
+      "type": "string",
+      "description": "The username of the npm user you would like to add to your organization"
+    }
+  },
+  "required": [
+    "npm",
+    "user"
+  ],
+  "additionalProperties": false
+}

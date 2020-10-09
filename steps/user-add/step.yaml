@@ -7,18 +7,18 @@ kind: Step
 
 # The name of the action. Required. Must be exactly the name of the directory
 # containing the action.
-name: npm-step-run-command
+name: user-add
 
 # The version of the action. Required. Must be an integer. If specified in the
 # directory name, must be exactly the version in the directory name.
 version: 3
 
 # High-level phrase describing what this action does. Required.
-summary:  Run command
+summary:  Add user
 
 # Single-paragraph explanation of what this action does in more detail.
 # Optional. Markdown.
-description: "This NPM step allows you to run a command give the context of a git resource"
+description: "This NPM step allows you to add an npm user to an organization"
 
 
 # URL or path relative to this file to an icon or icons representing this
@@ -37,7 +37,7 @@ build:
   kind: Docker
 
 publish:
-  repository: npm-step-run-command
+  repository: npm-step-user-add
 
 schemas: 
   spec:
