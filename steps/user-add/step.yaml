@@ -43,3 +43,17 @@ schemas:
   spec:
     source: file
     file: spec.schema.json
+
+examples:
+  - summary: Add an NPM user to an NPM organization
+    content:
+      apiVersion: v1
+      kind: Step
+      name: npm-add-user
+      image: relaysh/nmp-step-user-add
+      spec:
+        npm: 
+          token: !Secret npm-token
+          organization: !Parameter npmOrganization
+        user: !parameter npmUser
+        role: !parameter npmRole

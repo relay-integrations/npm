@@ -43,3 +43,16 @@ schemas:
   spec:
     source: file
     file: spec.schema.json
+
+examples:
+  - summary: Remove an NPM user from an NPM organization
+    content:
+      apiVersion: v1
+      kind: Step
+      name: npm-remove-user
+      image: relaysh/nmp-step-user-remove
+      spec:
+        npm: 
+          token: !Secret npm-token
+          organization: !Parameter npmOrganization
+        user: !parameter npmUser
