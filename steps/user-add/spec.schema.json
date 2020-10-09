@@ -9,7 +9,8 @@
       "properties": {
         "token": {
           "type": "string",
-          "description": "An NPM access token"
+          "description": "An NPM access token",
+          "writeOnly": true
         },
         "organization": {
           "type": "string",

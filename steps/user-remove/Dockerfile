@@ -16,6 +16,6 @@ COPY "./step.sh" "/nebula/step-npm.sh"
 ENTRYPOINT []
 CMD ["/bin/bash", "/nebula/step-npm.sh"]
 
-LABEL "org.opencontainers.image.title"="NPM Add User"
-LABEL "org.opencontainers.image.description"="This step allows you to add an NPM user to an organization"
+LABEL "org.opencontainers.image.title"="NPM Remove User"
+LABEL "org.opencontainers.image.description"="This step allows you to remove an NPM user from an organization"
 LABEL "com.puppet.nebula.sdk.version"="v1"

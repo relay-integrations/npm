@@ -18,7 +18,7 @@ summary:  Add user
 
 # Single-paragraph explanation of what this action does in more detail.
 # Optional. Markdown.
-description: "This NPM step allows you to add an npm user to an organization"
+description: "This NPM step allows you to add an NPM user to an organization"
 
 
 # URL or path relative to this file to an icon or icons representing this
@@ -37,7 +37,7 @@ build:
   kind: Docker
 
 publish:
-  repository: npm-step-user-add
+  repository: relaysh/npm-step-user-add
 
 schemas: 
   spec:
@@ -50,10 +50,10 @@ examples:
       apiVersion: v1
       kind: Step
       name: npm-add-user
-      image: relaysh/nmp-step-user-add
+      image: relaysh/npm-step-user-add
       spec:
         npm: 
           token: !Secret npm-token
           organization: !Parameter npmOrganization
-        user: !parameter npmUser
-        role: !parameter npmRole
+        user: !Parameter npmUser
+        role: !Parameter npmRole

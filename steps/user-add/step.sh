@@ -9,8 +9,6 @@ ROLE=$(ni get -p '{.role}')
 [ "$ROLE" ] || ROLE="developer"
 
 # Create .npmrc with credentials
-if [ -n "${NPM_TOKEN}" ]; then
-  echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> ./.npmrc
-fi
+echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> ./.npmrc
 
 npm org set $ORGANIZATION $USER $ROLE
