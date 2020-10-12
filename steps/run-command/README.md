@@ -12,7 +12,7 @@ steps:
   spec:
     command: build
     git:
-      name: design-system,
+      name: design-system
       repository: https://github.com/puppetlabs/design-system.git
 # test
 - name: npm
@@ -20,7 +20,7 @@ steps:
   spec:
     command: test
     git:
-      name: design-system,
+      name: design-system
       repository: https://github.com/puppetlabs/design-system.git
 # publish
 - name: npm
@@ -33,7 +33,7 @@ steps:
       otp: null
       dry-run: false
     git:
-      name: design-system,
+      name: design-system
       repository: https://github.com/puppetlabs/design-system.git
     npm:
       token:
@@ -45,7 +45,7 @@ steps:
   spec:
     command: ls
     git:
-      name: design-system,
+      name: design-system
       repository: https://github.com/puppetlabs/design-system.git
     packageFolder: packages/react-components
     flags:

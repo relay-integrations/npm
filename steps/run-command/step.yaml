@@ -43,3 +43,62 @@ schemas:
   spec:
     source: file
     file: spec.schema.json
+
+examples:
+- summary: build
+  content:
+    apiVersion: v1
+    kind: Step
+    name: npm
+    image: relaysh/npm-step-run-command
+    spec:
+      command: build
+      git:
+        name: design-system # Name of your repo
+        repository: https://github.com/puppetlabs/design-system.git # URL of your repo 
+- summary: test
+  content: 
+    apiVersion: v1
+    kind: Step
+    name: npm
+    image: relaysh/npm-step-run-command
+    spec:
+      command: test
+      git:
+        name: design-system # Name of your repo
+        repository: https://github.com/puppetlabs/design-system.git # URL of your repo   
+- summary: publish
+  content: 
+    apiVersion: v1
+    kind: Step
+    name: npm
+    image: relaysh/npm-step-run-command
+    spec:
+      command: publish
+      flags:
+        tag: latest
+        access: public
+        otp: null
+        dry-run: false
+      git:
+        name: design-system # Name of your repo
+        repository: https://github.com/puppetlabs/design-system.git # URL of your repo
+      npm:
+        token:
+          $type: Secret
+          name: npm_token
+- summary: list
+  content:
+    apiVersion: v1
+    kind: Step
+    name: npm
+    image: relaysh/npm-step-run-command
+    spec:
+      command: ls
+      git:
+        name: design-system # Name of your repeo 
+        repository: https://github.com/puppetlabs/design-system.git # URL of your repo 
+      packageFolder: packages/react-components # package folder
+      flags:
+        json: true
+    
