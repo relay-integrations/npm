@@ -14,12 +14,11 @@ name: run-command
 version: 3
 
 # High-level phrase describing what this action does. Required.
-summary:  Run NPM command
+summary: Run NPM command
 
 # Single-paragraph explanation of what this action does in more detail.
 # Optional. Markdown.
-description: "This NPM step allows you to run a command give the context of a git resource"
-
+description: This NPM step allows you to run a command in the context of a git resource
 
 # URL or path relative to this file to an icon or icons representing this
 # action. Optional. Defaults to the integration icon.
@@ -37,9 +36,9 @@ build:
   kind: Docker
 
 publish:
-  repository: npm-step-run-command
+  repository: relaysh/npm-step-run-command
 
-schemas: 
+schemas:
   spec:
     source: file
     file: spec.schema.json
@@ -55,9 +54,9 @@ examples:
       command: build
       git:
         name: design-system # Name of your repo
-        repository: https://github.com/puppetlabs/design-system.git # URL of your repo 
+        repository: https://github.com/puppetlabs/design-system.git # URL of your repo
 - summary: test
-  content: 
+  content:
     apiVersion: v1
     kind: Step
     name: npm
@@ -66,9 +65,9 @@ examples:
       command: test
       git:
         name: design-system # Name of your repo
-        repository: https://github.com/puppetlabs/design-system.git # URL of your repo   
+        repository: https://github.com/puppetlabs/design-system.git # URL of your repo
 - summary: publish
-  content: 
+  content:
     apiVersion: v1
     kind: Step
     name: npm
@@ -96,9 +95,8 @@ examples:
     spec:
       command: ls
       git:
-        name: design-system # Name of your repeo 
-        repository: https://github.com/puppetlabs/design-system.git # URL of your repo 
+        name: design-system # Name of your repo 
+        repository: https://github.com/puppetlabs/design-system.git # URL of your repo
       packageFolder: packages/react-components # package folder
       flags:
         json: true
-    

@@ -15,7 +15,7 @@
     },
     "nodeVersion": {
       "type": "string",
-      "description": "Node.js version. If unspecified, the latest LTS version will be used (as defined by the Debian-based node:lts image). The version string can be any version installable by nvm. To use an .nvmrc file in your repository to specify a Node.js version, you must specify a nodeVersion of \"auto\"."
+      "description": "Optional Node.js version. If unspecified, the latest LTS version will be used (as defined by the Debian-based node:lts image). The version string can be any version installable by nvm. To use an .nvmrc file in your repository to specify a Node.js version, you must specify a nodeVersion of \"auto\"."
     },
     "flags": {
       "type": "object",
@@ -73,6 +73,16 @@
         "name",
         "repository"
       ]
+    },
+    "npm": {
+      "type": "object",
+      "description": "NPM credentials",
+      "properties": {
+        "token": {
+          "type": "string",
+          "description": "NPM token created via `npm token create` required by certain commands like publish."
+        }
+      }
     }
   },
   "required": [
