@@ -18,7 +18,7 @@ summary: Run NPM command
 
 # Single-paragraph explanation of what this action does in more detail.
 # Optional. Markdown.
-description: This NPM step allows you to run a command in the context of a git resource
+description: Run NPM command in the context of a git resource
 
 # URL or path relative to this file to an icon or icons representing this
 # action. Optional. Defaults to the integration icon.
