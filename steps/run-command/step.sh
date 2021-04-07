@@ -9,6 +9,11 @@ PACKAGE_FOLDER=$(ni get -p '{.packageFolder}')
 FLAGS=$(ni get | jq -j 'try .flags | to_entries[] | "--\( .key ) \( .value ) "')
 NODE_VERSION_TO_INSTALL=$(ni get -p '{.nodeVersion}')
 
+echo "COMMAND: ${COMMAND}"
+echo "PACKAGE_FOLDER: ${PACKAGE_FOLDER}"
+echo "FLAGS: ${FLAGS}"
+echo "NODE_VERSION_TO_INSTALL: ${NODE_VERSION_TO_INSTALL}"
+
 # NPM credentials (required for commands like `publish`)
 NPM_TOKEN=$(ni get -p '{.npm.token}')
 
