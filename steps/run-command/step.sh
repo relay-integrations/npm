@@ -14,6 +14,8 @@ NPM_TOKEN=$(ni get -p '{.npm.token}')
 
 # Install a different version of Node.js if version specified
 if [ -n "${NODE_VERSION_TO_INSTALL}" ]; then
+  echo "Node.js version ${NODE_VERSION_TO_INSTALL} specified. Using nvm to install..."
+
   # Install nvm
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
 
