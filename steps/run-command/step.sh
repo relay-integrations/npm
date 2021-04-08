@@ -23,6 +23,8 @@ if [ -n "${NODE_VERSION_TO_INSTALL}" ]; then
 
   # Install nvm
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
   if [ "${NODE_VERSION_TO_INSTALL}" = "auto" ]; then
     nvm install
