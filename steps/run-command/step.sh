@@ -16,7 +16,7 @@ echo "git.repository: $(ni get -p '{.git.repository}')"
 echo "packageFolder: ${PACKAGE_FOLDER}"
 
 # NPM credentials (required for commands like `publish`)
-NPM_TOKEN=$(ni get -p '{.npm.token}')
+export NPM_TOKEN=$(ni get -p '{.npm.token}')
 
 # Install a different version of Node.js if version specified
 if [ -n "${NODE_VERSION_TO_INSTALL}" ]; then
@@ -51,9 +51,9 @@ fi
 cd ${PACKAGE_FOLDER}
 
 # Create .npmrc with credentials
-if [ -n "${NPM_TOKEN}" ]; then
-  echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> ./.npmrc
-fi
+# if [ -n "${NPM_TOKEN}" ]; then
+#   printf "\n//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> ./.npmrc
+# fi
 
 # Install npm dependencies
 npm install --unsafe-perm
