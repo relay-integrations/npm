@@ -58,5 +58,7 @@ fi
 # Install npm dependencies
 npm install --unsafe-perm
 
+git diff
+
 # Output
 npm ${COMMAND} ${FLAGS}
