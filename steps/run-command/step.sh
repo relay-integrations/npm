@@ -50,10 +50,11 @@ fi
 
 cd ${PACKAGE_FOLDER}
 
-# Create .npmrc with credentials
-# if [ -n "${NPM_TOKEN}" ]; then
-#   printf "\n//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> ./.npmrc
-# fi
+# Update npm credentials
+if [ -n "${NPM_TOKEN}" ]; then
+  npm config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
+  # printf "\n//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> ./.npmrc
+fi
 
 # Install npm dependencies
 npm install --unsafe-perm
