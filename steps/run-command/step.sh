@@ -1,5 +1,5 @@
 #!/bin/bash
-set -xeuo pipefail
+set -euo pipefail
 
 # Variables
 COMMAND=$(ni get -p '{.command}')
