@@ -53,13 +53,11 @@ fi
 # Update npm credentials
 if [ -n "${NPM_TOKEN}" ]; then
   npm config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
-  # printf "\n//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> ./.npmrc
 fi
 
 # Install npm dependencies
 npm install --unsafe-perm
 
-git diff
-
 # Output
-npm ${COMMAND} ${FLAGS}
+OUTPUT=$(npm ${COMMAND} ${FLAGS} 2>&1 | tee /dev/tty | tail -n 3)
+ni output set --key output --value "$OUTPUT"
