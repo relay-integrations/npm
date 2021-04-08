@@ -43,6 +43,14 @@ schemas:
     source: file
     file: spec.schema.json
 
+outputs:
+  $schema: http://json-schema.org/draft-07/schema#
+  type: object
+  properties:
+    output:
+      type: string
+      description: The last few lines of output from the npm command
+
 examples:
 - summary: build
   content:
