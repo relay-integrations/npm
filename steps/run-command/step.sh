@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euo pipefail
+set -xeuo pipefail
 
 # Variables
 COMMAND=$(ni get -p '{.command}')
@@ -18,6 +18,20 @@ echo "packageFolder: ${PACKAGE_FOLDER}"
 # NPM credentials (required for commands like `publish`)
 export NPM_TOKEN=$(ni get -p '{.npm.token}')
 
+# Clone git repository and cd into it
+GIT=$(ni get -p '{.git}')
+if [ -n "${GIT}" ]; then
+  ni git clone
+  NAME=$(ni get -p '{.git.name}')
+  DIRECTORY=/workspace/${NAME}
+
+  cd ${DIRECTORY}
+else
+  ni log fatal "git settings are required to run an NPM step"
+fi
+
+cd ${PACKAGE_FOLDER}
+
 # Install a different version of Node.js if version specified
 if [ -n "${NODE_VERSION_TO_INSTALL}" ]; then
   echo "Node.js version ${NODE_VERSION_TO_INSTALL} specified. Using nvm to install..."
@@ -35,20 +49,6 @@ if [ -n "${NODE_VERSION_TO_INSTALL}" ]; then
     nvm use "${NODE_VERSION_TO_INSTALL}"
   fi
 fi
-
-# Clone git repository and cd into it
-GIT=$(ni get -p '{.git}')
-if [ -n "${GIT}" ]; then
-  ni git clone
-  NAME=$(ni get -p '{.git.name}')
-  DIRECTORY=/workspace/${NAME}
-
-  cd ${DIRECTORY}
-else
-  ni log fatal "git settings are required to run an NPM step"
-fi
-
-cd ${PACKAGE_FOLDER}
 
 # Update npm credentials
 if [ -n "${NPM_TOKEN}" ]; then
