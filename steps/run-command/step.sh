@@ -59,5 +59,7 @@ fi
 npm install --unsafe-perm
 
 # Output
-OUTPUT=$(npm ${COMMAND} ${FLAGS} 2>&1 | tee /dev/tty | tail -n 3)
-ni output set --key output --value "$OUTPUT"
+OUTPUT=$(npm ${COMMAND} ${FLAGS} 2>&1)
+echo "$OUTPUT"
+TRUNCATED_OUTPUT=$(echo "$OUTPUT" | tail -n 3)
+ni output set --key output --value "$TRUNCATED_OUTPUT"
