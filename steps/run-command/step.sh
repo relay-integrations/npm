@@ -59,7 +59,6 @@ fi
 npm install --unsafe-perm
 
 # Output
-OUTPUT=$(npm ${COMMAND} ${FLAGS} 2>&1)
-echo "$OUTPUT"
-TRUNCATED_OUTPUT=$(echo "$OUTPUT" | tail -n 3)
-ni output set --key output --value "$TRUNCATED_OUTPUT"
+npm ${COMMAND} ${FLAGS} 2>&1 | tee ~/.relay-npm-step-run-command-output.txt
+OUTPUT=$(tail -3 ~/.relay-npm-step-run-command-output.txt)
+ni output set --key output --value "$OUTPUT"
