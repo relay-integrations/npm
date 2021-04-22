@@ -52,10 +52,8 @@ fi
 
 # Update npm credentials
 if [ -n "${NPM_TOKEN}" ]; then
-  echo "Setting authToken for npm"
   npm set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
-  cat ~/.npmrc
-  npm whoami
+  echo "Logged in to npm as $(npm whoami)"
 fi
 
 # Install npm dependencies
