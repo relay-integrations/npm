@@ -21,7 +21,8 @@ export NPM_TOKEN=$(ni get -p '{.npm.token}')
 # Clone git repository and cd into it
 GIT=$(ni get -p '{.git}')
 if [ -n "${GIT}" ]; then
-  ni git clone
+  REVISION=$(ni get -p '{.git.revision}')
+  ni git clone --revision "${REVISION}"
   NAME=$(ni get -p '{.git.name}')
   DIRECTORY=/workspace/${NAME}
 
